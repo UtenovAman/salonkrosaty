@@ -32,7 +32,7 @@
   <ul id="menu" class="menu">
     <li> <a href="#" id="about"> <img src="images/aman1.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">О Нас</span> <span class="descr">Информация</span> </span> </a> </li>
     <li> <a href="#" id="projects"> <img src="images/aman8.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Клиент</span> <span class="descr">Информация</span> </span> </a> </li>
-    <li> <a href="#" id="contact"> <img src="images/aman9.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Контакты</span> <span class="descr">Информация</span> </span> </a> </li>
+    <li> <a href="#" id="contact"> <img src="images/aman9.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Отзыв</span> <span class="descr">Информация</span> </span> </a> </li>
     <li > <a href="#" id="blog"> <img src="images/aman6.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Новости</span> <span class="descr">Информация</span> </span> </a> </li>
   </ul>
 </nav>
@@ -108,23 +108,46 @@
 </article>
 
 <article id="popupProjects" class="popupProjects">
-  <div class="customScrollBox">
+	 <div class="customScrollBox">
     <div class="container">
       <div class="content"> <a id="popupProjectsClose"><img src="images/cross.png" width="20" alt="" /></a>
-        <div class="border"></div>
-        <p class="nomargin"><img src="images/elegant-press2.png" alt="" class="image"/><br />
-        </p>
-        <div class="border"></div>
-        <p><img src="images/elegant-press3.png" alt="" class="image"/><br />
-        </p>
-        <div class="border"></div>
-      </div>
+	<body ng-app="app">
+	<h1>Добавить клиента</h1>
+  <div ng-controller="taskCtrl">
+  <div class="container">
+	<div class="row">
+  	<div class="col-md-4 text-center">
+  		<form name="myForm" novalidate>
+      <input type="text" ng-model="task.name" placeholder="Имя">
+      <input type="text" ng-model="task.surname" placeholder="Фамилия">
+      <input type="email" name="email" ng-model="task.email" placeholder="email">
+      <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+			<span ng-show="myForm.email.$error.required">Email is required.</span>
+			<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+			</span>
+      <input type="number" ng-model="task.age" placeholder="Возраст">
+      <input list="sex" ng-model="task.sex" placeholder="Пол">
+      <datalist id="sex">
+    	<option>Муж</option>
+    	<option>Жен</option>
+  		</datalist>
+		      <button class="text-center" ng-click="addtask()" type="submit">Добавить</button>
+		  </form>
+    <ul>
+    	<h3>Список клиентов</h3>
+      <li class="task-item" ng-repeat="task in tasks">
+        <span class="dne">{{task.name}}  {{task.surname}}</span>
+        <span class="done" ng-click="removeItem($index)">X</span>
+      </li>
+    </ul>
     </div>
-    <div class="dragger_container">
-      <div class="dragger"></div>
+		<h4> {{task.name}} </h4>
+		<h4> {{task.surname}} </h4>
+		<h4> {{task.age}} </h4>
+		<h4> {{task.sex}} </h4>
     </div>
-    <a class="scrollUpBtn" href="#"></a> <a class="scrollDownBtn" href="#"></a> </div>
-    
+</div>
+</body>
 </article>
 <article id="popupContact" class="popupContact">
   <div class="customScrollBox">
