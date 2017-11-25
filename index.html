@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Утенов Аман</title>
+<title>Cалон красоты</title>
 <script src="bower/angular/angular.js"></script>
 	<script src="bower/angular-route/angular-route.js"></script>
 	<script src="bower/angular-local-storage/dist/angular-local-storage.js"></script>
@@ -25,16 +25,17 @@
 <hgroup>
   <h1>Сайт на тему "Салон красоты" </h1>
   <h4>ВУЗ <a href="http://www.google.kz" target="_blank">КАЗНИТУ</a></h4>
-  <h4>Проект студента <a href="" target="_blank">Утенова Амана Адины Джумакенова</a></h4>
+  <h4>Проект студента <a href="" target="_blank"><br>Утенова Амана</br> Адины Джумакеновой</a></h4>
   <h4><a href="" target="_blank"></a></h4>
 </hgroup>
 <nav>
   <ul id="menu" class="menu">
     <li> <a href="#" id="about"> <img src="images/aman1.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">О Нас</span> <span class="descr">Информация</span> </span> </a> </li>
     <li> <a href="#" id="projects"> <img src="images/aman8.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Клиент</span> <span class="descr">Информация</span> </span> </a> </li>
-    <li> <a href="#" id="contact"> <img src="images/aman9.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Отзыв</span> <span class="descr">Информация</span> </span> </a> </li>
-    <li > <a href="#" id="blog"> <img src="images/aman6.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Новости</span> <span class="descr">Информация</span> </span> </a> </li>
-    <li > <a href="#" id="blog"> <img src="images/aman6.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Новости</span> <span class="descr">Информация</span> </span> </a> </li>
+    <li> <a href="#" id="contact"> <img src="images/aman9.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Контакты</span> <span class="descr">Информация</span> </span> </a> </li>
+    <li > <a href="#" id="master"> <img src="images/aman7.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Мастера</span> <span class="descr">Информация</span> </span> </a> </li>
+    <li > <a href="#" id="services"> <img src="images/aman6.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Услуги</span> <span class="descr">Информация</span> </span> </a> </li>
+     <li> <a href="#" id="reviews"> <img src="images/otziv.jpg" alt=""/> <span class="active"></span> <span class="wrap"> <span class="link">Отзывы</span> <span class="descr">Информация</span> </span> </a> </li>
   </ul>
 </nav>
 <section id="bg">
@@ -87,7 +88,7 @@
     </div>
   </div>
 </div>
-<article id="popupAbout" class="popupAbout">
+<article id="popupAbout" class="popupAbout">// about
   <div class="customScrollBox">
     <div class="container">
       <div class="content"> <a id="popupAboutClose"><img src="images/cross.png" width="20" alt="" /></a>
@@ -108,7 +109,7 @@
     <a class="scrollUpBtn" href="#"></a> <a class="scrollDownBtn" href="#"></a> </div>
 </article>
 
-<article id="popupProjects" class="popupProjects">
+<article id="popupProjects" class="popupProjects">// Projects
 	 <div class="customScrollBox">
     <div class="container">
       <div class="content"> <a id="popupProjectsClose"><img src="images/cross.png" width="20" alt="" /></a>
@@ -121,11 +122,11 @@
   		<form name="myForm" novalidate>
       <input type="text" ng-model="task.name" placeholder="Имя">
       <input type="text" ng-model="task.surname" placeholder="Фамилия">
-      <input type="email" name="email" ng-model="task.email" placeholder="email">
-      <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-			<span ng-show="myForm.email.$error.required">Email is required.</span>
-			<span ng-show="myForm.email.$error.email">Invalid email address.</span>
-			</span>
+      <input list="us" ng-model="task.us" placeholder="Услуга">
+      <datalist id="us">
+      <option>Маникюр</option>
+      <option>Педикюр</option>
+      </datalist>
       <input type="number" ng-model="task.age" placeholder="Возраст">
       <input list="sex" ng-model="task.sex" placeholder="Пол">
       <datalist id="sex">
@@ -137,7 +138,7 @@
     <ul>
     	<h3>Список клиентов</h3>
       <li class="task-item" ng-repeat="task in tasks">
-        <span class="dne">{{task.name}}  {{task.surname}}</span>
+        <span class="dne">{{task.name}}  {{task.surname}} {{task.us}}</span>
         <span class="done" ng-click="removeItem($index)">X</span>
       </li>
     </ul>
@@ -153,7 +154,7 @@
 <article id="popupContact" class="popupContact">
   <div class="customScrollBox">
     <div class="container">
-      <div class="content"> <a id="popupContactClose"><img src="images/cross.png" width="20" alt="" /></a>
+      <div class="content"> <a id="popupContactClose"><img src="images/cross.png" width="20" alt="" /></a>//Contact
         <h1>Контакты</h1>
         <p></p>
         <form method="post">
@@ -168,15 +169,40 @@
           <input type="submit" value="Send Message" />
         </form>
         <br />
-        <iframe width="425" height="300" class="map" src="https://www.google.kz/maps/place/Almaly/@43.2500697,76.9351495,15.54z/data=!4m5!3m4!1s0x38836e9357f4b5d1:0xbcd313c1e89feefa!8m2!3d43.2514272!4d76.9455814?hl=en&hl=en"></iframe>
+       <table width="400" height="308" class="map" border="0"background="images/27.jpg"></table>     
         <div id="social-network"> <a href="#" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a> <a href="#" target="_blank"><img src="images/flickr.png" alt="Flicker" /></a> <a href="#" target="_blank"><img src="images/linkedin.png" alt="Linkedin" /></a> <a href="#" target="_blank"><img src="images/myspace.png" alt="Myspace" /></a> <a href="#" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a> </div>
-      </div>
+         </div>
     </div>
     <div class="dragger_container">
       <div class="dragger"></div>
     </div>
     <a class="scrollUpBtn" href="#"></a> <a class="scrollDownBtn" href="#"></a> </div>
 </article>
+
+<article id="popupMaster" class="popupMaster">
+  <div class="customScrollBox">
+    <div class="container">
+      <div class="content"> <a id="popupBlogClose"><img src="images/cross.png" width="20" alt="" /></a>
+        <h1>Мастера</h1>
+        <p><img src="images/master5.jpg" alt="" class="image"/> Стаж работы по специальности с 1999 года.
+        Профессиональные школы:
+Школа студия парикмахерского искусства  «Profi-style»
+Школа «Fudge» (Англия),
+Наращивание волос Balmain(Нидерланды).Мастер- класс по карвингу в компании Goldwell</p>
+        <p><img src="images/master2.jpg" alt="" class="image"/> Стаж работы с 2016 года.
+        Профессиональные школы:Базовый курс в студии НечаевыхБазовый курс "Make up atelier" у Натальи Павловой
+Повышении квалификации в студии Нечаевых
+Курс "Идеальные брови " в студии НечаевыхКурс " Архитектура бровей" студия Browissimo
+Курс "Субкультуры " у Натальи Павловой</p>
+        <p><img src="images/master6.jpg" alt="" class="image"/> Перманентный макияж — внедрение специального пигмента в верхние слои дермы с помощью иглы для создания стойкого рисунка на лице, чтоб подчеркнуть, выделить, скорректировать, улучшить некоторые черты лица или имитировать обычный макияж.</p>
+        <p><img src="images/master4.jpg" alt="" class="image"/> Nails-стилистОпыт работы с 2002 годаПрофессиональные школы: маникюр, педикюр Star NailsПовышение квалификации Star nails 2005 год</p>
+  </div>
+    </div>
+    <div class="dragger_container">
+      <div class="dragger"></div>
+    </div>
+    <a class="scrollUpBtn" href="#"></a> <a class="scrollDownBtn" href="#"></a> </div>
+   </article>
 <script type="text/javascript" src="scripts/gallery.js"></script> 
 <script type="text/javascript" src="scripts/jquery.mCustomScrollbar.js"></script>
 </body>

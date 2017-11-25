@@ -397,3 +397,107 @@ cursor:pointer -moz-border-radius:2px;
 	-ms-transition:all .25s linear;
 	transition:all .25s linear;
 }
+
+
+/*
+*/
+#popupMaster .customScrollBox {
+	position:relative;
+	height:100%;
+	overflow:hidden;
+}
+#popupMaster .customScrollBox .container {
+	position:relative;
+	width:880px;
+	top:0;
+	float:left;
+}
+#popupMaster .customScrollBox .content {
+	clear:both;
+}
+#popupMaster .dragger_container {
+	position:relative;
+	width:2px;
+	height:525px;
+	float:left;
+	margin:40px 0 0 10px;
+	background:#333;
+cursor:pointer -moz-border-radius:2px;
+	-khtml-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	cursor:s-resize;
+}
+#popupMaster .dragger {
+	position:absolute;
+	width:2px;
+	height:60px;
+	background:#999;
+	text-align:center;
+	line-height:60px;
+	color:#666;
+	overflow:hidden;
+	cursor:pointer;
+	-moz-border-radius:2px;
+	-khtml-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+#popupMaster .dragger_pressed {
+	position:absolute;
+	width:4px;
+	margin-left:-1px;
+	height:60px;
+	background:#999;
+	text-align:center;
+	line-height:60px;
+	color:#666;
+	overflow:hidden;
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	cursor:s-resize;
+}
+#popupMaster .scrollUpBtn, #popupMaster .scrollDownBtn {
+	position:absolute;
+	display:inline-block;
+	width:14px;
+	height:15px;
+	margin-right:2px;
+	text-decoration:none;
+	right:0;
+	filter:alpha(opacity=20);
+	-moz-opacity:0.20;
+	-khtml-opacity:0.20;
+	opacity:0.20;
+}
+#popupMaster .scrollUpBtn {
+	top:16px;
+	background:url(images/mcs_btnUp.png) center center no-repeat;
+	-webkit-transition:all .25s linear;
+	-moz-transition:all .25s linear;
+	-o-transition:all .25s linear;
+	-ms-transition:all .25s linear;
+	transition:all .25s linear;
+}
+#popupMaster .scrollDownBtn {
+	bottom:12px;
+	background:url(images/mcs_btnDown.png) center center no-repeat;
+	-webkit-transition:all .25s linear;
+	-moz-transition:all .25s linear;
+	-o-transition:all .25s linear;
+	-ms-transition:all .25s linear;
+	transition:all .25s linear;
+}
+#popupMaster .scrollUpBtn:hover, #popupMaster .scrollDownBtn:hover {
+	filter:alpha(opacity=60);
+	-moz-opacity:0.60;
+	-khtml-opacity:0.60;
+	opacity:0.60;
+	-webkit-transition:all .25s linear;
+	-moz-transition:all .25s linear;
+	-o-transition:all .25s linear;
+	-ms-transition:all .25s linear;
+	transition:all .25s linear;
+}

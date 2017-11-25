@@ -190,8 +190,8 @@
 				var popupBlogWidth = $("#popupBlog").width();
 				$("#popupBlog").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupBlogHeight/2,
-					"left": windowWidth/2-popupBlogWidth/2
+					"top": windowHeight/2-popupMastHeight/2,
+					"left": windowWidth/2-popupMasterWidth/2
 				});
 			}
 			
@@ -218,5 +218,68 @@
 				$(document).keyup(function(e){
 				if(e.keyCode === 27)
 					disablePopupBlog();
+			});
+			});
+//Master Page Pop Up
+
+
+			var popupMasterStatus = 0;
+			
+			function loadPopupMaster(){
+									$("#popupMaster").fadeIn("slow");
+				if(popupMasterStatus==0){
+					$("#popupMaster").fadeIn("slow");
+					popupMasterStatus = 1;
+				}
+			}
+			
+			function disablePopupMaster(){
+				if(popupMasterStatus==1){
+					$("#popupMaster").fadeOut("slow");
+					popupMasterStatus = 0;
+				}
+			}
+			
+			function centerPopupMaster(){
+				var windowWidth = document.documentElement.clientWidth;
+				var windowHeight = document.documentElement.clientHeight;
+				var popupMaterHeight = $("#popupMaster").height();
+				var popupMasterWidth = $("#popupMaster").width();
+				console.log(popupMasterWidth);
+				$("#popupMaster").css({
+					"position": "absolute",
+					"top": windowHeight/2-popupMaterHeight/2,
+					"left": windowWidth/2-popupMasterWidth/2
+				});
+			}
+			
+			
+			$(document).ready(function(){
+				$("#popupMaster").fadeOut();
+				popupMasterStatus = 0;
+				$("#master").click(function(){
+				$("#popupMaster").css({
+					"visibility": "visible"	});
+
+					disablePopupAbout();
+					disablePopupProjects();					
+					disablePopupContact();		
+					disablePopupBlog()			
+					centerPopupMaster();
+					loadPopupMaster();
+				    $("#popupMaster").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);	
+
+
+
+				});
+				$("#popupMasterClose").click(function(){
+					disablePopupMaster();
+				});
+				$("#bg").click(function(){
+					disablePopupMaster();
+				});
+				$(document).keyup(function(e){
+				if(e.keyCode === 27)
+					disablePopupMaster();
 			});
 			});
