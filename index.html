@@ -126,8 +126,12 @@
       <datalist id="us">
       <option>Маникюр</option>
       <option>Педикюр</option>
+      <option>Массаж</option>
+      <option>Окрашивание волос</option>
+      <option>Наращивание ресниц</option>
+      <option>Макияж</option>
       </datalist>
-      <input type="number" ng-model="task.age" placeholder="Возраст">
+      <input type="price" ng-model="task.price" placeholder="Цена">
       <input list="sex" ng-model="task.sex" placeholder="Пол">
       <datalist id="sex">
     	<option>Муж</option>
@@ -138,7 +142,7 @@
     <ul>
     	<h3>Список клиентов</h3>
       <li class="task-item" ng-repeat="task in tasks">
-        <span class="dne">{{task.name}}  {{task.surname}} {{task.us}}</span>
+        <span class="dne">{{task.name}}  {{task.surname}} {{task.us}} {{task.price}}</span>
         <span class="done" ng-click="removeItem($index)">X</span>
       </li>
     </ul>

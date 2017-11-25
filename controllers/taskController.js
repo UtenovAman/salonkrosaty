@@ -9,18 +9,18 @@ app.controller('taskCtrl', function($scope, localStorageService) {
     localStorageService.set("mes", $scope.tasks)
   }
   
-  function PacClass(id, name, surname, age, sex, us)
+  function PacClass(id, name, surname, price, sex, us)
   {
     this.id = id;
     this.name = name;
     this.surname = surname;
-    this.age = age;
+    this.price = price;
     this.sex = sex;
     this.us = us;
   }
   $scope.addtask = function() {
     var iden = $scope.tasks.length+1;
-    var student = new PacClass(iden, $scope.task.name, $scope.task.surname, $scope.task.age, $scope.task.sex, $scope.task.us)
+    var student = new PacClass(iden, $scope.task.name, $scope.task.surname, $scope.task.price, $scope.task.sex, $scope.task.us)
     $scope.tasks.push($scope.task);
     console.log($scope.task);
     $scope.task = {};
